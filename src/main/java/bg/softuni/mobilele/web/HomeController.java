@@ -11,8 +11,5 @@ public class HomeController {
         return "index";
     }
 
-//    @GetMapping("http://localhost:8080/offers/add")
-//    public String addOffer() {
-//        return "offer-add";
-//    }
+
 }
