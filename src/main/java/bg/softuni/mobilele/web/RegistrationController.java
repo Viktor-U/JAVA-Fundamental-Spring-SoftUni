@@ -4,24 +4,23 @@ import bg.softuni.mobilele.model.DTOs.UserRegistrationDTO;
 import bg.softuni.mobilele.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/users")
-public class UserController {
+public class RegistrationController {
 
     private final UserService userService;
-
-    public UserController(UserService userService) {
+    public RegistrationController(UserService userService) {
         this.userService = userService;
     }
 
-    @GetMapping("/login")
-    public String login(){
-        return "auth-login";
+    @ModelAttribute("registerDTO")
+    public UserRegistrationDTO registerDTO() {
+        return new UserRegistrationDTO();
     }
-
     @GetMapping("/register")
     public String register(){
         return "auth-register";
@@ -33,6 +32,6 @@ public class UserController {
 
         userService.registerUser(userRegistrationDTO);
 
-        return "index";
+        return "redirect:/";
     }
 }

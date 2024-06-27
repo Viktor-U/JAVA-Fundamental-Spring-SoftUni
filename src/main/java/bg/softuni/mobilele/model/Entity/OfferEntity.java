@@ -5,11 +5,9 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "offers")
-public class OfferEntity {
+public class OfferEntity extends BaseEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+
 
     private String description;
 
@@ -25,13 +23,7 @@ public class OfferEntity {
         this.mileage = mileage;
     }
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getDescription() {
         return description;
