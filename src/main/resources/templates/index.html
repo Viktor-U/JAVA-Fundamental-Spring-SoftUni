@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
     <meta charset="UTF-8">
@@ -18,8 +19,7 @@
 
 <div class="container-fluid">
     <h5 class="text-center text-white mt-5">Welcome to MobiLeLeLe,
-        <th:blck th:if="${@currentUser.isLoggedIn()}" th:text="${@currentUser.getFullName()}"></th:blck>
-        <th:blck th:unless="${@currentUser.isLoggedIn()}" >Anonymous</th:blck>
+        <th:block th:text="${welcomeMessage}"></th:block>
         !
 
     </h5>
